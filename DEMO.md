@@ -32,7 +32,7 @@ A policy that limits actions whenever MFA is not enabled for a user account.
 CloudTrail logging is enabled to train IAM changes and events. 
 #### T1110
 ![T1110](./images/waf.png)
-A WAF policy is created which limist traffic. 
+A WAF policy is created which limits traffic. 
 
 ---
 
