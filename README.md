@@ -12,31 +12,31 @@ CloudMitigator is a comprehensive security automation platform that detects AWS 
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-### 🔍 **Intelligent Security Monitoring**
+### **Intelligent Security Monitoring**
 - **Real-time Status Detection**: Automatically detects AWS resources needing security mitigations
 - **Dynamic Button Colors**: Visual indicators (Red = Action Needed, Green = Secure)
 - **Instance Counting**: Shows exact number of resources requiring attention
 
-### ⚡ **Automated Mitigations**
+### **Automated Mitigations**
 - **One-Click Remediation**: Apply security fixes directly from the UI
 - **Smart Configuration**: Handles existing AWS resources intelligently
 - **Batch Operations**: Processes multiple resources simultaneously
 
-### 📊 **Comprehensive Audit Trail**
+### **Comprehensive Audit Trail**
 - **CloudWatch Integration**: All actions logged to AWS CloudWatch
 - **Structured Logging**: JSON-formatted logs with timing and details
 - **Demo Mode Support**: Full functionality without AWS credentials for testing
 
-### 🎯 **Advanced TTP Coverage**
+### **Advanced TTP Coverage**
 - **4 Critical TTPs**: MFA enforcement, secrets rotation, WAF protection, CloudTrail logging
 - **AWS Service Integration**: Direct integration with IAM, Secrets Manager, WAF, CloudTrail
 - **Permission Management**: Granular IAM permission requirements
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 AWS-Automatic-TTP-Mitigation-/
@@ -73,7 +73,7 @@ AWS-Automatic-TTP-Mitigation-/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React.js 18.2** - Modern UI framework
@@ -94,7 +94,7 @@ AWS-Automatic-TTP-Mitigation-/
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 - **Docker** and **Docker Compose** installed
 - **AWS Account** with appropriate IAM permissions
@@ -102,7 +102,7 @@ AWS-Automatic-TTP-Mitigation-/
 
 ---
 
-## 🚦 Quick Start
+## Quick Start
 
 ### 1. Clone the Repository
 
@@ -144,7 +144,7 @@ FLASK_ENV=development
 FLASK_DEBUG=True
 ```
 
-⚠️ **Security Note**: Never commit `.env` files to version control!
+ **Security Note**: Never commit `.env` files to version control!
 
 ### 4. Start the Application with Docker
 
@@ -196,7 +196,7 @@ npm start
 
 ---
 
-## 🧪 Running Tests
+## Running Tests
 
 ### Backend Tests (pytest)
 
@@ -249,7 +249,7 @@ curl -X POST http://localhost:5000/mitigate/T1078
 
 ---
 
-## 🎨 UI Components
+## UI Components
 
 ### Header
 - CloudMitigator branding with shield icon
@@ -272,9 +272,9 @@ curl -X POST http://localhost:5000/mitigate/T1078
 
 ---
 
-## 🔐 AWS Permissions Required
+## AWS Permissions Required
 
-**📋 See `AWS_PERMISSIONS.md` for complete IAM policy details.**
+** See `AWS_PERMISSIONS.md` for complete IAM policy details.**
 
 ### Quick Setup
 ```bash
@@ -297,7 +297,7 @@ aws iam attach-user-policy --user-name YOUR_USER --policy-arn POLICY_ARN
 
 ---
 
-## 📊 Supported TTPs
+## Supported TTPs
 
 | TTP ID | Name | AWS Service | Mitigation | Status Detection |
 |--------|------|-------------|------------|------------------|
@@ -307,15 +307,15 @@ aws iam attach-user-policy --user-name YOUR_USER --policy-arn POLICY_ARN
 | **T1098** | Account Manipulation | CloudTrail | Start logging on trails | Counts trails not logging |
 
 ### TTP Features
-- **🔍 Smart Detection**: Automatically scans your AWS environment
-- **📊 Instance Counting**: Shows exact number of resources needing attention
-- **⚡ Batch Processing**: Handles multiple resources simultaneously
-- **🏷️ Configuration Tracking**: Uses tags to track CloudMitigator actions
-- **📋 CloudWatch Logging**: All actions logged with timing and details
+- ** Smart Detection**: Automatically scans your AWS environment
+- ** Instance Counting**: Shows exact number of resources needing attention
+- ** Batch Processing**: Handles multiple resources simultaneously
+- ** Configuration Tracking**: Uses tags to track CloudMitigator actions
+- ** CloudWatch Logging**: All actions logged with timing and details
 
 ---
 
-## 🔄 Adding New TTPs
+## Adding New TTPs
 
 1. Edit `data/ttp_mappings.json`:
 
@@ -347,36 +347,36 @@ def mitigate_function_name(self, **params) -> Dict:
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
-### 🔴 Red Buttons Not Turning Green
+### Red Buttons Not Turning Green
 - **Check AWS permissions**: Ensure you have all required IAM permissions
 - **Debug endpoint**: Use `/debug/status/<ttp_id>` to see detailed status
 - **CloudWatch logs**: Check backend logs for permission errors
 
-### 🔑 AWS Permission Errors
+### AWS Permission Errors
 - **"AccessDeniedException"**: Missing required IAM permissions
 - **"explicit deny"**: Your user has a restrictive policy attached
 - **Solution**: Apply the complete policy from `AWS_PERMISSIONS.md`
 
-### 🔗 Connection Issues
+### Connection Issues
 - **Backend won't start**: Check AWS credentials and Python dependencies
 - **Frontend won't connect**: Verify backend is running on port 5000
 - **Docker issues**: Try `docker compose down && docker compose build --no-cache`
 
-### 📊 CloudWatch Logging Issues
+### CloudWatch Logging Issues
 - **Test endpoint**: Use `/cloudwatch/test` to diagnose issues
 - **Missing log group**: Run `aws logs create-log-group --log-group-name '/aws/cloudmitigator/audit'`
 - **Permission errors**: Ensure `logs:CreateLogGroup`, `logs:CreateLogStream`, `logs:PutLogEvents`
 
-### 🎭 Demo Mode
+### Demo Mode
 - **No AWS credentials**: Application automatically switches to demo mode
 - **Full functionality**: All features work with simulated responses
 - **Testing**: Perfect for UI/UX testing without AWS resources
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature/new-ttp`
@@ -386,13 +386,13 @@ def mitigate_function_name(self, **params) -> Dict:
 
 ---
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License.
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **MITRE ATT&CK** for the TTP framework
 - **AWS** for the boto3 SDK
@@ -400,10 +400,4 @@ This project is licensed under the MIT License.
 
 ---
 
-## 📧 Contact
 
-For questions or support, please open an issue on GitHub.
-
----
-
-**Built with ❤️ for AWS Security Automation**
