@@ -1,0 +1,153 @@
+.logs-viewer {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.logs-viewer-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #1f2937;
+}
+
+.logs-viewer-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.logs-info {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.logs-info p {
+  margin: 0 0 8px 0;
+  color: #475569;
+}
+
+.logs-info p:last-child {
+  margin-bottom: 0;
+}
+
+.logs-info code {
+  background: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.logs-access-methods {
+  display: grid;
+  gap: 24px;
+}
+
+.access-method h4 {
+  margin: 0 0 8px 0;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.access-method p {
+  margin: 0 0 12px 0;
+  color: #64748b;
+}
+
+.console-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #3b82f6;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.console-link:hover {
+  background: #2563eb;
+}
+
+.cli-command {
+  background: #1e293b;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.command-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.command-title {
+  color: #94a3b8;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.copy-button {
+  background: transparent;
+  border: 1px solid #475569;
+  color: #94a3b8;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.copy-button:hover {
+  background: #374151;
+  border-color: #6b7280;
+  color: #f3f4f6;
+}
+
+.command-text {
+  color: #f1f5f9;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  line-height: 1.4;
+  word-break: break-all;
+  display: block;
+}
+
+.log-format {
+  margin-top: 24px;
+}
+
+.log-format h4 {
+  margin: 0 0 8px 0;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.log-format p {
+  margin: 0 0 12px 0;
+  color: #64748b;
+}
+
+.log-example {
+  background: #1e293b;
+  color: #f1f5f9;
+  padding: 16px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  line-height: 1.4;
+  overflow-x: auto;
+  margin: 0;
+}

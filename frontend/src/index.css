@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f2f3f3;
+  color: #16191f;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* AWS Color Palette */
+:root {
+  --aws-squid-ink: #232F3E;
+  --aws-orange: #FF9900;
+  --aws-blue: #146EB4;
+  --aws-light-blue: #1E88E5;
+  --aws-gray: #545B64;
+  --aws-light-gray: #AAB7B8;
+  --aws-bg-light: #F2F3F3;
+  --aws-white: #FFFFFF;
+  --aws-border: #D5DBDB;
+  --aws-success: #1D8102;
+  --aws-error: #D13212;
+  --aws-warning: #FF9900;
+}
