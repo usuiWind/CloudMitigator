@@ -1,0 +1,30 @@
+{
+  "T1078": {
+    "name": "Valid Accounts",
+    "description": "Adversaries may obtain and abuse credentials of existing accounts",
+    "mitigation": "Enforce MFA on IAM users",
+    "aws_service": "iam",
+    "function": "mitigate_mfa_enforce"
+  },
+  "T1552": {
+    "name": "Unsecured Credentials",
+    "description": "Adversaries may search compromised systems to find and obtain insecurely stored credentials",
+    "mitigation": "Enable Secrets Manager rotation",
+    "aws_service": "secretsmanager",
+    "function": "mitigate_secrets_rotation"
+  },
+  "T1110": {
+    "name": "Brute Force",
+    "description": "Adversaries may use brute force techniques to gain access to accounts",
+    "mitigation": "Enable AWS WAF rate limiting",
+    "aws_service": "wafv2",
+    "function": "mitigate_waf_rate_limit"
+  },
+  "T1098": {
+    "name": "Account Manipulation",
+    "description": "Adversaries may manipulate accounts to maintain access to victim systems",
+    "mitigation": "Enable CloudTrail logging for IAM changes",
+    "aws_service": "cloudtrail",
+    "function": "mitigate_cloudtrail_iam"
+  }
+}
