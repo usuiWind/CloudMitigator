@@ -1,4 +1,4 @@
-# CloudMitigator 🛡️
+# CloudMitigator 
 
 **Automated AWS Security Mitigations for MITRE ATT&CK TTPs**
 
@@ -173,7 +173,7 @@ http://localhost:3000
 
 ---
 
-## 🔧 Manual Setup (Without Docker)
+## Manual Setup (Without Docker)
 
 ### Backend Setup
 
