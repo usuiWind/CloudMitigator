@@ -24,15 +24,21 @@ Each TTP card turns green after mitigation and displays no active instances in n
 
 ### Mitigation in Action
 Example of a one-click AWS security mitigation being applied through the Flask backend.
+#### T1078 MFA policy 
 ![T1078](./images/mfapolicy.png)
+A policy that limits actions whenever MFA is not enabled for a user account. 
+#### T1098 Cloud Trail
 ![T1098](./images/logtrail.png)
+CloudTrail logging is enabled to train IAM changes and events. 
+#### T1110
 ![T1110](./images/waf.png)
+A WAF policy is created which limist traffic. 
 
 ---
 
 ### CloudWatch Logging & T10552
 
-![CloudWatch Logging](./screenshots/logs.png)
+![CloudWatch Logging](./images/logs.png)
 Mitigation actions are audit-logged to AWS CloudWatch with timestamps and resource details. Displays complete T10552 mitigation.
 
 ---
