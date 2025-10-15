@@ -619,3 +619,73 @@ class MitigationService:
             return {'success': False, 'message': f"AWS Error: {e.response['Error']['Message']}"}
         except Exception as e:
             return {'success': False, 'message': str(e)}
+
+    def restrict_api_permissions(self, apply_mitigation: bool = False) -> Dict:
+        """Restrict API permissions to only allow necessary actions"""
+        try:
+            restricted_users = []
+            iam = self.session.client('iam')
+            deny_policy_doc = {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Deny",
+                        "Action": [
+                            "ec2:Describe*",
+                            "iam:List*",
+                            "s3:List*",
+                            "rds:Describe*",
+                            "cloudtrail:Describe*",
+                            "cloudwatch:Describe*"
+                        ],
+                        "Resource": "*"
+                    }
+                ]
+            }
+            policy_name = "RestrictDiscoveryPolicy" 
+            try:
+                iam.create_policy(
+                PolicyName=policy_name,
+                PolicyDocument=json.dumps(deny_policy_doc)
+                )
+                print(f"[+] Created policy: {policy_name}")
+            except iam.exceptions.EntityAlreadyExistsException:
+                print(f"[*] Policy {policy_name} already exists, reusing it.")
+
+            # Get admin users from groups or tags
+            admin_groups = ["Admins", "SecurityAdmins"]
+            all_users = iam.list_users()["Users"]
+
+            for user in all_users:
+                username = user["UserName"]
+                groups = iam.list_groups_for_user(UserName=username)["Groups"]
+                group_names = [g["GroupName"] for g in groups]
+
+                # Skip admin users
+                if any(g in admin_groups for g in group_names):
+                    continue
+
+                # Check attached policies
+                attached_policies = iam.list_attached_user_policies(UserName=username)["AttachedPolicies"]
+                for policy in attached_policies:
+                    policy_arn = policy["PolicyArn"]
+                    # If policy includes Describe* permissions, detach
+                    if "Describe" in policy_arn or "List" in policy_arn:
+                        iam.detach_user_policy(UserName=username, PolicyArn=policy_arn)
+                        restricted_users.append(username)
+
+                # Attach deny policy to enforce restriction
+                policy_arn = f"arn:aws:iam::{iam.get_user()['User']['Arn'].split(':')[4]}:policy/{policy_name}"
+                iam.attach_user_policy(UserName=username, PolicyArn=policy_arn)
+
+            print(f"[+] Restricted Describe* permissions for users: {restricted_users}")
+            return {
+                "success": True,
+                "message": f"Restricted Describe* permissions for users: {restricted_users}",
+                "details": {"restricted_users": restricted_users}
+            }
+            
+        except ClientError as e: 
+            return {'success': False, 'message': f"AWS Error: {e.response['Error']['Message']}"}
+        except Exception as e:
+            return {'success': False, 'message': str(e)}
